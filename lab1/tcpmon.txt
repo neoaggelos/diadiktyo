@@ -1,0 +1,6 @@
+* Add `axis.jar` to classpath
+
+* tcpmonitor: listen port == port that client will talk to
+* work as proxy
+* localhost/port where server runs
+

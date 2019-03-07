@@ -1,0 +1,23 @@
+<!-- A form for selection of user choices (inputted data to be sent by GET)
+two text boxes, three radio buttons; , submit and reset buttons. -->
+<HTML>
+
+<HEAD>
+    <TITLE>A form to be filled in and submitted </TITLE>
+</HEAD>
+
+<BODY>
+    <FORM ACTION="http://localhost:8080/somewhere" METHOD="GET">
+        <INPUT TYPE="text" NAME="firstName"> Put your name<BR>
+        <INPUT TYPE="text" NAME="lastName"> ... and surname<BR>
+        <STRONG>Select the Continent of your Destination:<br></STRONG>
+        <INPUT TYPE="radio" NAME="continent" VALUE="Europe">check here for Europe<BR>
+        <INPUT TYPE="radio" NAME="continent" VALUE="Asia">check here for Asia<BR>
+        <INPUT TYPE="radio" NAME="continent" VALUE="America" CHECKED>check here for
+        America<BR>
+        <INPUT TYPE="submit" VALUE="Submit">
+        <INPUT TYPE="reset"> </P>
+    </FORM>
+</BODY>
+
+</HTML>
