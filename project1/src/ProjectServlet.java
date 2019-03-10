@@ -28,7 +28,7 @@ public class ProjectServlet extends HttpServlet {
         return buf.toString();
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
             PrintWriter out;
 
@@ -36,29 +36,14 @@ public class ProjectServlet extends HttpServlet {
             out = response.getWriter();
 
             String text = request.getRequestURI();
-
             HashMap<String, String> cookies = cookiesMap(request.getCookies());
 
-            // index
-            if (text.equals("/project1/")) {
-                /* clear cookies for fresh start */
-                // clearCookies(cookies_array, response);
-                text = indexPage();
-
-            }
-
-            // some form
-            else if (text.equals("/project1/choose/")) {
+            if (text.equals("/project1/choose/")) {
                 /* pick next form depending on which form was submitted */
                 String which = request.getParameter("form_id");
 
-                // no form == we came from index page, show language form
-                if (which == null) {
-                    text = langForm();
-                }
-
-                // language form --> set cookies, show low level form
-                else if (which.equals("lang_form")) {
+                // no form == we came from index page, show language form// language form --> set cookies, show low level form
+                if (which.equals("lang_form")) {
                     // handle request form
                     // crashes if none selected, good
                     String langs = "";
@@ -75,7 +60,7 @@ public class ProjectServlet extends HttpServlet {
                 // stack form --> set cookies, open backend or frontend form
                 else if (which.equals("stack_form")) {
                     // handle stack form
-                    String sts= "";
+                    String sts = "";
                     for (var stack : stacks) {
                         if (request.getParameter(stack) != null) {
                             sts += stack + "-";
@@ -131,16 +116,29 @@ public class ProjectServlet extends HttpServlet {
                     }
                 }
 
-                // unknown form --> 404
-                else {
-                    text = page404();
-                }
-
-
+            } else {
+                text = page404();
             }
 
-            // 404
-            else {
+            // write response
+            out.println(text);
+            out.close();
+    }
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+            PrintWriter out;
+            response.setContentType("text/html");
+            out = response.getWriter();
+
+            String text = request.getRequestURI();
+            HashMap<String, String> cookies = cookiesMap(request.getCookies());
+
+            if (text.equals("/project1/")) {                // index
+                text = indexPage();
+            } else if (text.equals("/project1/choose/")) {  // start
+                text = langForm();
+            } else {                                        // 404
                 text = page404();
             }
 
@@ -255,36 +253,6 @@ public class ProjectServlet extends HttpServlet {
         return loadTemplate("base.html").
             replace("{{TITLE}}", "Check the options below").
             replace("{{CONTENT}}", textBuf.toString());
-    }
-
-    //DEBUG
-    private String cookiesPage(Cookie cookies_array[]) throws IOException {
-        HashMap<String, String> cookies = cookiesMap(cookies_array);
-
-        String th = loadTemplate("items/table_th.html");
-        String td = loadTemplate("items/table_td.html");
-        String tr = loadTemplate("items/table_tr.html");
-
-        StringBuffer table_data = new StringBuffer();
-        for (var c : cookies.entrySet()) {
-            String name = td.replace("{{TEXT}}", c.getKey());
-            String value = td.replace("{{TEXT}}", c.getValue());
-            String row = tr.replace("{{TEXT}}", name + value);
-
-            table_data.append(row);
-        }
-
-        String name = th.replace("{{TEXT}}", "Cookie");
-        String value = th.replace("{{TEXT}}", "Value");
-        String table_header = tr.replace("{{TEXT}}", name + value);
-
-        String table = loadTemplate("items/table.html").
-            replace("{{TABLE_HEADER}}", table_header).
-            replace("{{TABLE_CONTENT}}", table_data.toString());
-
-        return loadTemplate("base.html").
-            replace("{{TITLE}}", "List of cookies").
-            replace("{{CONTENT}}", table);
     }
 
     // parse cookies in a [name, value] map for easier access
