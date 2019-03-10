@@ -104,7 +104,7 @@ public class ProjectServlet extends HttpServlet {
                     }
                     addPersistentCookie(response, "frontend", fs);
 
-                    // show final form, or backend
+                    // show final page, or backend
                     if (cookies.get("backend").equals("to_visit")) {
                         text = backendForm(cookies.get("langs"));
                     } else {
@@ -123,7 +123,7 @@ public class ProjectServlet extends HttpServlet {
                     }
                     addPersistentCookie(response, "backend", bs);
 
-                    // show final form, or frontend
+                    // show final page, or frontend
                     if (cookies.get("frontend").equals("to_visit")) {
                         text = frontendForm(cookies.get("langs"));
                     } else {
@@ -168,8 +168,9 @@ public class ProjectServlet extends HttpServlet {
     }
 
     private String stackForm(String langs) throws IOException {
+        String display = langs.substring(0, langs.length()-1).replace("-", ", ");
         String form = loadTemplate("pages/stack_form.html")
-            .replace("{{TEXT}}", langs);
+            .replace("{{TEXT}}", display);
 
         return loadTemplate("base.html").
             replace("{{TITLE}}", "Choose what you would like to work on").
@@ -214,7 +215,46 @@ public class ProjectServlet extends HttpServlet {
     }
 
     private String finalPage(String frontend, String backend) throws IOException {
-        return "YOU FUCK!" + frontend + backend;
+        StringBuffer textBuf = new StringBuffer();
+        String table = loadTemplate("items/table.html");
+
+        if (!frontend.equals("skip")) {
+            StringBuffer fdata = new StringBuffer();
+            for (var f : frontends) {
+                if (frontend.contains(f)) {
+                    fdata.append(
+                        loadTemplate("items/info/"+f+".html")
+                    );
+                }
+            }
+
+            textBuf.append(table.
+                replace("{{TITLE}}", "Frontend Technologies").
+                replace("{{DATA}}", fdata)
+            );
+        }
+
+        if (!backend.equals("skip")) {
+            StringBuffer bdata = new StringBuffer();
+            for (var b : backends) {
+                if (backend.contains(b)) {
+                    bdata.append(
+                        loadTemplate("items/info/"+b+".html")
+                    );
+                }
+            }
+
+            textBuf.append(table.
+                replace("{{TITLE}}", "Backend Technologies").
+                replace("{{DATA}}", bdata)
+            );
+        }
+
+        textBuf.append(loadTemplate("items/start_over.html"));
+
+        return loadTemplate("base.html").
+            replace("{{TITLE}}", "Check the options below").
+            replace("{{CONTENT}}", textBuf.toString());
     }
 
     //DEBUG
@@ -245,16 +285,6 @@ public class ProjectServlet extends HttpServlet {
         return loadTemplate("base.html").
             replace("{{TITLE}}", "List of cookies").
             replace("{{CONTENT}}", table);
-    }
-
-    private void clearCookies(Cookie cookies[], HttpServletResponse response) {
-        if (cookies != null) {
-            for (var c : cookies) {
-                c.setValue("");
-                c.setMaxAge(0);
-                response.addCookie(c);
-            }
-        }
     }
 
     // parse cookies in a [name, value] map for easier access
