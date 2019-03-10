@@ -1,0 +1,31 @@
+<form action="/project1/choose/" method="GET">
+
+  <small class="text-muted"> Choose programming languages that you like </small>
+
+  <div class="m-5">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="Python" name="Python" value="1" />
+      <label class="form-check-label" for="Python">Python</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="JS" name="JS" value="1" />
+      <label class="form-check-label" for="JS">JS</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="Java" name="Java" value="1" />
+      <label class="form-check-label" for="Java">Java</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="PHP" name="PHP" value="1" />
+      <label class="form-check-label" for="PHP">PHP</label>
+    </div>
+  </div>
+
+  <div class="m-5">
+    <input type="submit" value="Next" class="btn btn-primary mb-2" name="submit" />
+    <br>
+    <a class="text-muted font-italic small" href="/project1/">(or start over)</a>
+  </div>
+
+  <input type="hidden" id="form_id" name="form_id" value="lang_form" />
+</form>
