@@ -23,6 +23,7 @@ public class ProjectServlet extends HttpServlet {
 
         while ((line = in.readLine()) != null) {
             buf.append(line);
+            buf.append("\n");
         }
 
         return buf.toString();
