@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<artists>
+    <artist>
+        <Name>Alter Bridge</Name>
+        <Members>Myles Kennedy, Mark Tremonti, Brian Marshall, Scott Phillips</Members>
+        <Location>Orlando, Florida, USA</Location>
+        <LastAlbum>The Last Hero (2016)</LastAlbum>
+        <Genres>Hard Rock</Genres>
+        <BestSong>Blackbird</BestSong>
+    </artist>
+    <artist>
+        <Name>ERRA</Name>
+        <Members>JT Cavey, Sean Price, Alex Ballew, Conor Hesse</Members>
+        <Location>Birmingham, Alabama, USA</Location>
+        <LastAlbum>Breach (2018)</LastAlbum>
+        <Genres>Progressive Metal</Genres>
+        <BestSong>Skyline</BestSong>
+    </artist>
+    <artist>
+        <Name>TesseracT</Name>
+        <Members>Daniel Tompkins, Alec "Acle" Kahney, James Monteith, Amos Williams, Jay Postones</Members>
+        <Location>Milton Keynes, UK</Location>
+        <LastAlbum>Sonder (2018)</LastAlbum>
+        <Genres>Progressive Metal</Genres>
+        <BestSong>Concealing Fate</BestSong>
+    </artist>
+    <artist>
+        <Name>Distant Dream</Name>
+        <Members>Marcin Majrowski (Solo Project)</Members>
+        <Location>Poland</Location>
+        <LastAlbum>Your Own Story (2018)</LastAlbum>
+        <Genres>Instrumental Rock, Post Rock</Genres>
+        <BestSong>Gradient Space</BestSong>
+    </artist>
+    <artist>
+        <Name>Time, The Valuator</Name>
+        <Members>Rene Möllenbeck, Cedric Dreyszas, Yunus Proch</Members>
+        <Location>Germany</Location>
+        <LastAlbum>How Fleeting, How Fragile (2018)</LastAlbum>
+        <Genres>Progressive Metal</Genres>
+        <BestSong>Starseeker</BestSong>
+    </artist>
+</artists>

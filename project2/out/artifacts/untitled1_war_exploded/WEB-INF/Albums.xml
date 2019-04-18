@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<albums>
+    <album>
+        <Name>Live At The Royal Albert Hall</Name>
+        <Artist>Alter Bridge (Featuring the Parallax Orchestra)</Artist>
+        <Year>2018</Year>
+        <Genre>Rock</Genre>
+    </album>
+    <album>
+        <Name>The Mountain</Name>
+        <Artist>Haken</Artist>
+        <Year>2013</Year>
+        <Genre>Progressive Rock</Genre>
+    </album>
+    <album>
+        <Name>Act IV: Rebirth In Reprise</Name>
+        <Artist>The Dear Hunter</Artist>
+        <Year>2016</Year>
+        <Genre>Progressive Rock</Genre>
+    </album>
+    <album>
+        <Name>Divenire</Name>
+        <Artist>Ludovico Einaudi</Artist>
+        <Year>2006</Year>
+        <Genre>Classical Music</Genre>
+    </album>
+    <album>
+        <Name>In Contact</Name>
+        <Artist>Caligula's Horse</Artist>
+        <Year>2017</Year>
+        <Genre>Progressive Metal</Genre>
+    </album>
+</albums>

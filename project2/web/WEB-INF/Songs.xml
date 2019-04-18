@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<songs>
+    <song>
+        <Name>Elusive Reasons</Name>
+        <Artist>Time, The Valuator</Artist>
+        <Year>2018</Year>
+        <Genre>Progressive Rock</Genre>
+        <Album>How Fleeting, How Fragile</Album>
+    </song>
+    <song>
+        <Name>Perfectly Imperfect</Name>
+        <Artist>Kingcrow</Artist>
+        <Year>2018</Year>
+        <Genre>Progressive Metal</Genre>
+        <Album>The Persistence</Album>
+    </song>
+    <song>
+        <Name>The First The Last</Name>
+        <Artist>Tremonti</Artist>
+        <Year>2018</Year>
+        <Genre>Rock</Genre>
+        <Album>A Dying Machine</Album>
+    </song>
+    <song>
+        <Name>Nine Levels</Name>
+        <Artist>Voices From The Fuselage</Artist>
+        <Year>2018</Year>
+        <Genre>Progressive Metal</Genre>
+        <Album>The Odyssey</Album>
+    </song>
+    <song>
+        <Name>Hegaimas: A Song For Freedom</Name>
+        <Artist>Need</Artist>
+        <Year>2017</Year>
+        <Genre>Progressive Metal</Genre>
+        <Album>Hegaimas: A Song For Freedom</Album>
+    </song>
+</songs>
